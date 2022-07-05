@@ -1,0 +1,12 @@
+request_parameter
+/indicators?edwCustomerId=51965806
+/indicators?customerControlNumber=4834571925
+/indicators?customerPin=8134170354
+/indicators?pprCustomerId=10059836
+/indicators?customerControlNumber=4834571925&customerPin=8134170354&edwCustomerId=51965806&pprCustomerId=10059836
+/requests
+/offers?customerPin=4153219453
+/offers?edwCustomerId=8006832
+/offers?customerControlNumber=3793649865
+/offers?pprCustomerId=9384750
+/offers?customerControlNumber=3793649865&customerPin=4153219453&edwCustomerId=8006832&pprCustomerId=10059836

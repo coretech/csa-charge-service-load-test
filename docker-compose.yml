@@ -1,0 +1,56 @@
+version: "3.4"
+
+networks:
+  k6:
+  grafana:
+
+services:
+  influxdb:
+    image: influxdb:1.8
+    networks:
+      - k6
+      - grafana
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=influxdb_microservice
+
+  grafana:
+    image: grafana/grafana:latest
+    networks:
+      - grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_BASIC_ENABLED=false
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+    volumes:
+      - ./grafana:/etc/grafana/provisioning/
+
+  k6:
+    image: grafana/k6:latest
+    networks:
+      - k6
+    ports:
+      - "6565:6565"
+    environment:
+      - K6_OUT=influxdb=http://qegrafana.idt.net:8086/team_csa-influxdb-csa_analytics_service_qa
+      - K6_INFLUXDB_PUSH_INTERVAL=5s
+      - K6_INSECURE_SKIP_TLS_VERIFY=true
+    volumes:
+      - ./dist:/dist
+
+  k6_local:
+    image: grafana/k6:latest
+    networks:
+      - k6
+    ports:
+      - "6565:6565"
+    environment:
+      - K6_OUT=influxdb=http://influxdb:8086/influxdb_microservice
+      - K6_INFLUXDB_PUSH_INTERVAL=5s
+      - K6_INSECURE_SKIP_TLS_VERIFY=true
+    volumes:
+      - ./dist:/dist
