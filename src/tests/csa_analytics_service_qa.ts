@@ -4,7 +4,7 @@ import { check } from 'k6';
 import { parse } from 'papaparse';
 
 const csvData = new SharedArray("another data name", function() {
-    return parse(open('assets/testDataPinCtl.csv'), { header: true }).data;
+    return parse(open('assets/testData.csv'), { header: true }).data;
 });
 
 const BASE_URL = 'https://csa-analytics-service.qa-private.aws.idt.net'
