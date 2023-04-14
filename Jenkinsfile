@@ -4,7 +4,11 @@ def runnerContext = [
 ]
 
 pipeline {
-    agent { label 'qa_linux_awscli' }
+    agent { label 'qa_linux_awscli_performance' }
+        environment {
+            node_version_tool = 'Node18'
+            npm_registry_name = 'idt-npm'
+        }
 
     options {
         timestamps()

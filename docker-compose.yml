@@ -36,7 +36,7 @@ services:
     ports:
       - "6565:6565"
     environment:
-      - K6_OUT=influxdb=http://qegrafana.idt.net:8086/team_csa-influxdb-csa_analytics_service_qa
+      - K6_OUT=influxdb=http://qegrafana.idt.net:8086/team_csa-influxdb-csa_charge_service_qa
       - K6_INFLUXDB_PUSH_INTERVAL=5s
       - K6_INSECURE_SKIP_TLS_VERIFY=true
     volumes:

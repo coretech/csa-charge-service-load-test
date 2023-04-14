@@ -1,7 +1,7 @@
 {
-  "name": "csa-analytics-service-load-test",
-  "description": "CSA Rate Services Load Tests",
-  "repository": "https://github.com/coretech/csa-analytics-service-load-test.git",
+  "name": "csa-charge-service-load-test",
+  "description": "CSA Charge Services Load Tests",
+  "repository": "https://github.com/aserhiyenka/csa-charge-service-load-test.git",
   "private": true,
   "version": "1.0.0",
   "devDependencies": {
