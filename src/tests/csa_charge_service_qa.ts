@@ -3,23 +3,23 @@ import http from 'k6/http';
 import {check} from 'k6';
 import {parse} from 'papaparse';
 
-const getClassTab = new SharedArray("another data name", function () {
+const getClassTab = new SharedArray("ClassTab", function () {
     return parse(open('assets/getClassTab.csv'), {header: true}).data;
 });
 
-const getDnis = new SharedArray("another data name", function () {
+const getDnis = new SharedArray("Dnis", function () {
     return parse(open('assets/getDnis.csv'), {header: true}).data;
 });
 
-const getDnistype = new SharedArray("another data name", function () {
+const getDnistype = new SharedArray("Dnistype", function () {
     return parse(open('assets/getDnistype.csv'), {header: true}).data;
 });
 
-const getRates = new SharedArray("another data name", function () {
+const getRates = new SharedArray("Rates", function () {
     return parse(open('assets/getRates.csv'), {header: true}).data;
 });
 
-const getPlans = new SharedArray("another data name", function () {
+const getPlans = new SharedArray("Plans", function () {
     return parse(open('assets/getPlans.csv'), {header: true}).data;
 });
 
