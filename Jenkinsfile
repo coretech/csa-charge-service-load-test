@@ -1,6 +1,6 @@
 def runnerContext = [
     scenarioFile: "",
-    baseUrl: "",
+    baseUrl: "https://psp-charge-service.awsqa.idt.net",
 ]
 
 pipeline {
