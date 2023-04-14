@@ -147,7 +147,7 @@ export const options = {
     }
 }
 
-export function getClassTabLoad() {
+export default function getClassTabLoad() {
 
     let requestParam = getRandonClass()
 
