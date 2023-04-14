@@ -244,27 +244,27 @@ export function getUnlimitedPlansLoad() {
 
 export function getRandonClass() {
     let randIndex = getRandomInt(0, getClassTab.length);
-    return getClassTab[randIndex].request_parameter;
+    return getClassTab[randIndex].CLASSTAB;
 }
 
 function getRandonDnis() {
     let randIndex = getRandomInt(0, getDnis.length);
-    return getDnis[randIndex].request_parameter;
+    return getDnis[randIndex].DNIS;
 }
 
 function getRandonDnistype() {
     let randIndex = getRandomInt(0, getDnistype.length);
-    return getDnistype[randIndex].request_parameter;
+    return getDnistype[randIndex].DNISTYPE;
 }
 
 function getRandomRates() {
     let randIndex = getRandomInt(0, getRates.length);
-    return getRates[randIndex].request_parameter;
+    return getRates[randIndex].RATES;
 }
 
 function getRandomPlans() {
     let randIndex = getRandomInt(0, getPlans.length);
-    return getPlans[randIndex].request_parameter;
+    return getPlans[randIndex].PLANS;
 }
 
 function getRandomInt(min, max) {
