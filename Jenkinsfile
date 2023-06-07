@@ -4,11 +4,11 @@ def runnerContext = [
 ]
 
 pipeline {
-    agent { label 'qa_linux_awscli_performance' }
-        environment {
-            node_version_tool = 'Node18'
-            npm_registry_name = 'idt-npm'
-        }
+    agent { label 'qa_linux_auto_performance' }
+
+    tools{
+        nodejs 'node16.14'
+    }
 
     options {
         timestamps()
@@ -42,7 +42,8 @@ pipeline {
                 withEnv([
                     "PATH+DOCKER=${tool 'Docker-18.09.6'}/bin", "PATH+DOCKER-COMPOSE=${tool 'docker-compose1.22.0'}"
                 ]) {
-                    withCredentials([usernamePassword(credentialsId: 'INFLUX_DB_ACCOUNT', usernameVariable: 'INFLUX_DB_USER', passwordVariable: 'INFLUX_DB_PASS')]) {
+                    withCredentials([string(credentialsId: 'INFLUX_DB_USR', variable: 'INFLUX_DB_USER'),
+                                     string(credentialsId: 'INFLUX_DB_PWD', variable: 'INFLUX_DB_PASS')]) {
                         script {
                             if(tryGetProperty("BASE_URL")) {
                                 runnerContext.baseUrl = tryGetProperty("BASE_URL")
